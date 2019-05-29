@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>status-page</title>
+    <title>SafeZoon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -14,6 +14,9 @@
 
     <!-- jvectormap -->
     <link href="../plugins/jvectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+
+    <!-- Custom box css -->
+    <link href="../plugins/custombox/css/custombox.min.css" rel="stylesheet">
 
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -57,7 +60,10 @@
                             <span class="logo-large"><i class="mdi mdi-radar"></i> Highdmin</span>
                         </a> -->
                     <!-- Image Logo -->
-                    
+                    <a href="index.html" class="logo">
+                        <img src="assets/images/logo_sm.png" alt="" height="26" class="logo-small">
+                        <img src="assets/images/logo.png" alt="" height="50" class="logo-large">
+                    </a>
 
                 </div>
                 <!-- End Logo container-->
@@ -247,7 +253,7 @@
                             <a class="nav-link dropdown-toggle waves-effect nav-user" data-toggle="dropdown" href="#"
                                 role="button" aria-haspopup="false" aria-expanded="false">
                                 <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span
-                                    class="ml-1 pro-user-name">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
+                                    class="ml-1 pro-user-name">Admin<i class="mdi mdi-chevron-down"></i> </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                 <!-- item-->
@@ -299,11 +305,11 @@
                     <ul class="navigation-menu">
 
                         <li class="has-submenu">
-                            <a href="status.html"><i class="icon-speedometer"></i>거치대 현황</a>
+                            <a href="page-status.html"><i class="icon-speedometer"></i>분석 리스트</a>
                         </li>
 
                         <li class="has-submenu">
-                            <a href="location.html"><i class="icon-layers"></i>지역</a>
+                            <a href="page-location.html"><i class="icon-layers"></i>분석 시각화</a>
                         </li>
 
 
@@ -327,10 +333,10 @@
                         <div class="btn-group float-right">
                             <ol class="breadcrumb hide-phone p-0 m-0">
                                 <li class="breadcrumb-item"><a href="#">Safe Zone</a></li>
-                                <li class="breadcrumb-item active, header-text">거치대 현황</li>
+                                <li class="breadcrumb-item active, header-text">분석 리스트</li>
                             </ol>
                         </div>
-                        <h4 class="header-text">거치대 현황</h4>
+                        <h4 class="header-text">분석 리스트</h4>
                     </div>
                 </div>
             </div>
@@ -416,19 +422,178 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row" style="height: 500px">
-                <div class="col-12" style="height: 500px">
-                    <div class="card-box" style="height: 500px">
-                        <h4 class="header-title">World Map</h4>
-                        <div id="world-map-markers" style="height: 100%;"></div>
-                    </div>
-                </div>
-            </div>
             <!-- end row -->
 
 
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="card-box" style="height: 452px;">
+                        <h4 class="header-title mb-3">
+                            <nav class="header-text">Safezone 추천 지역 리스트</nav>
+                        </h4>
 
+                        <div class="table-responsive">
+                            <table class="table table-hover table-centered m-0">
+
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>지역</th>
+                                        <th>속도</th>
+                                        <th>위도</th>
+                                        <th>경도</th>
+                                        <th>속도</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-toggle="modal" data-target=".bs-example-modal-sm">
+                                        <td>
+                                            <nav data-toggle="modal" data-target=".bs-example-modal-sm">1</nav>
+                                        </td>
+
+                                        <td>
+                                            <h5 class="m-0 font-weight-normal">방배동</h5>
+                                        </td>
+
+                                        <td>
+                                            250m
+                                        </td>
+
+                                        <td>
+                                            37.517608
+                                        </td>
+
+                                        <td>
+                                            127.046363
+                                        </td>
+
+                                        <td>
+                                            20km/h
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            2
+                                        </td>
+
+                                        <td>
+                                            잠원동
+                                        </td>
+
+                                        <td>
+                                            200m
+                                        </td>
+
+                                        <td>
+                                            37.4760053
+                                        </td>
+
+                                        <td>
+                                            126.9671619
+                                        </td>
+
+                                        <td>
+                                            12km/h
+                                        </td>
+                                    </tr>
+                                    <tr data-toggle="modal" data-target=".bs-example-modal-sm">
+                                        <td>
+                                            3
+                                        </td>
+
+                                        <td>
+                                            서초동
+                                        </td>
+
+                                        <td>
+                                            100m
+                                        </td>
+
+                                        <td>
+                                            37.4686291
+                                        </td>
+
+                                        <td>
+                                            127.0185656
+                                        </td>
+
+                                        <td>
+                                            15km/h
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            4
+                                        </td>
+
+                                        <td>
+                                            내곡동
+                                        </td>
+
+                                        <td>
+                                            200m
+                                        </td>
+
+                                        <td>
+                                            37.5167907
+                                        </td>
+
+                                        <td>
+                                            127.0031308
+                                        </td>
+
+                                        <td>
+                                            10km/h
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            5
+                                        </td>
+
+                                        <td>
+                                            양재동
+                                        </td>
+
+                                        <td>
+                                            150m
+                                        </td>
+
+                                        <td>
+                                            37.4509543
+                                        </td>
+
+                                        <td>
+                                            127.0514516
+                                        </td>
+
+                                        <td>
+                                            12km/h
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="card-box">
+                        <h4 class="m-t-0 header-title, header-text">Safezone 추천 지역</h4>
+
+
+                        <div id="donut-chart">
+                            <div id="donut-chart-container" class="flot-chart mt-5" style="height: 340px;">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
 
             <!-- end row -->
 
@@ -437,7 +602,40 @@
     </div>
     <!-- end wrapper -->
 
+    <!-- Bootstrap Modals -->
 
+                
+
+                <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-dialog-centered modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="mySmallModalLabel">Safe Zone 추천 이유</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                위 장소는 2018년 기준 최다 사고 발생 지역으로 데이터 분석이 되어 세이프존으로 사용하기에 적합합니다. 
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+
+
+                
+
+    
+    <!-- End row -->
+
+
+    <!-- Custom Modals -->
+    
+    <!-- End row -->
+
+</div> <!-- end container -->
+</div>
+<!-- end wrapper -->
     <!-- Footer -->
 
     <!-- End Footer -->
@@ -471,6 +669,12 @@
     <script src="../plugins/jvectormap/jquery-jvectormap-in-mill.js"></script>
     <script src="../plugins/jvectormap/jquery-jvectormap-asia-mill.js"></script>
     <script src="assets/pages/jquery.jvectormap.init.js"></script>
+
+    <!-- Modal-Effect -->
+    <script src="../plugins/custombox/js/custombox.min.js"></script>
+    <script src="../plugins/custombox/js/custombox.legacy.min.js"></script>
+
+
 
     <!-- KNOB JS -->
     <!--[if IE]>

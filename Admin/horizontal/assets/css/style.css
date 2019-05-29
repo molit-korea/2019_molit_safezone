@@ -4795,7 +4795,7 @@ table.dataTable > tbody > tr.child span.dtr-title {
 ============= */
 .gmaps,
 .gmaps-panaroma {
-  height: 300px;
+  height: 95%;
   background: #e3eaef;
   border-radius: 3px;
 }
@@ -4805,13 +4805,96 @@ table.dataTable > tbody > tr.child span.dtr-title {
   text-align: center;
   color: #ffffff;
   font-size: 16px;
-  line-height: 40px;
+  line-height: 20px;
+  background: #000000;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay-others {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
+  background: #829295;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay-signal {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
   background: #02c0ce;
   border-radius: 4px;
   padding: 10px 20px;
 }
 
-.gmaps-overlay_arrow {
+.gmaps-overlay-load {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
+  background: #8bcdf9;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay-interrupt {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
+  background: #2d7bf4;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay-retribution {
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 20px;
+  background: #3bc877;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+
+.gmaps-overlay-others_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.gmaps-overlay-signal_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.gmaps-overlay-load_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.gmaps-overlay-interrupt_arrow {
+  left: 50%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.gmaps-overlay-retribution_arrow {
   left: 50%;
   margin-left: -16px;
   width: 0;
@@ -4819,11 +4902,46 @@ table.dataTable > tbody > tr.child span.dtr-title {
   position: absolute;
 }
 
-.gmaps-overlay_arrow.above {
+.gmaps-overlay-others_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #829295;
+}
+
+.gmaps-overlay-signal_arrow.above {
   bottom: -15px;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
   border-top: 16px solid #02c0ce;
+}
+
+.gmaps-overlay-load_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #8bcdf9;
+}
+
+.gmaps-overlay-interrupt_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #2d7bf4;
+}
+
+.gmaps-overlay-retribution_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #3bc877;
+}
+
+.gmaps-overlay_arrow.above {
+  bottom: -15px;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 16px solid #000000;
 }
 
 .gmaps-overlay_arrow.below {
@@ -4882,6 +5000,10 @@ table.dataTable > tbody > tr.child span.dtr-title {
   font-family: "Rubik", sans-serif;
 }
 
+#map_small_message_text {
+  font-size: 10px;
+}
+
 .mapael .zoomIn, .mapael .zoomOut, .mapael .zoomReset {
   display: inline-block;
   text-align: center;
@@ -4908,7 +5030,6 @@ table.dataTable > tbody > tr.child span.dtr-title {
 .map .zoomOut {
   top: 50px;
 }
-
 /* =============
    Calendar
 ============= */

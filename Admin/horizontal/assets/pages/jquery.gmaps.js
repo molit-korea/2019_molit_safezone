@@ -4,52 +4,52 @@
 * Google Maps
 */
 
-!function($) {
-    "use strict";
+!function ($) {
+  "use strict";
 
-    var GoogleMap = function() {};
+  var GoogleMap = function () { };
 
-    //creates basic map
-    GoogleMap.prototype.createBasic = function($container) {
-        return new GMaps({
-          div: $container,
-          lat: -12.043333,
-          lng: -77.028333
-        });
-    },
+  //creates basic map
+  GoogleMap.prototype.createBasic = function ($container) {
+    return new GMaps({
+      div: $container,
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  },
     //creates map with markers
-    GoogleMap.prototype.createMarkers = function($container) {
-        var map = new GMaps({
-          div: $container,
-          lat: -12.043333,
-          lng: -77.028333
-        });
+    GoogleMap.prototype.createMarkers = function ($container) {
+      var map = new GMaps({
+        div: $container,
+        lat: -12.043333,
+        lng: -77.028333
+      });
 
-        //sample markers, but you can pass actual marker data as function parameter
-        map.addMarker({
-          lat: -12.043333,
-          lng: -77.03,
-          title: 'Lima',
-          details: {
-            database_id: 42,
-            author: 'HPNeo'
-          },
-          click: function(e){
-            if(console.log)
-              console.log(e);
-            alert('You clicked in this marker');
-          }
-        });
-        map.addMarker({
-          lat: -12.042,
-          lng: -77.028333,
-          title: 'Marker with InfoWindow',
-          infoWindow: {
-            content: '<p>HTML Content</p>'
-          }
-        });
+      //sample markers, but you can pass actual marker data as function parameter
+      map.addMarker({
+        lat: -12.043333,
+        lng: -77.03,
+        title: 'Lima',
+        details: {
+          database_id: 42,
+          author: 'HPNeo'
+        },
+        click: function (e) {
+          if (console.log)
+            console.log(e);
+          alert('You clicked in this marker');
+        }
+      });
+      map.addMarker({
+        lat: -12.042,
+        lng: -77.028333,
+        title: 'Marker with InfoWindow',
+        infoWindow: {
+          content: '<p>HTML Content</p>'
+        }
+      });
 
-        return map;
+      return map;
     },
     //creates map with polygone
     GoogleMap.prototype.createWithPolygon = function ($container, $path) {
@@ -75,16 +75,60 @@
     GoogleMap.prototype.createWithOverlay = function ($container) {
       var map = new GMaps({
         div: $container,
-        lat: -12.043333,
-        lng: -77.028333
+        //37.524111, 127.045393
+        lat: 37.524111,
+        lng: 127.045393,
+        zoom: 13
       });
+
+
+
+      
+
       map.drawOverlay({
-        lat: map.getCenter().lat(),
-        lng: map.getCenter().lng(),
-        content: '<div class="gmaps-overlay">Our Office!<div class="gmaps-overlay_arrow above"></div></div>',
+        lat: 37.517608,
+        lng: 127.046363,
+        content: '<div class="gmaps-overlay-signal"><div>방배동</div><div id="map_small_message_text">사고 다발 지역</div><div class="gmaps-overlay-signal_arrow above"></div></div>',
         verticalAlign: 'top',
         horizontalAlign: 'center'
       });
+
+      // map.drawOverlay({
+      //   lat: 37.4760053,
+      //   lng: 126.9671619,
+      //   content: '<div class="gmaps-overlay-signal"><div>잠원동</div><div>sdf</div><div class="gmaps-overlay-signal_arrow above"></div></div>',
+      //   verticalAlign: 'top',
+      //   horizontalAlign: 'center'
+      // });
+
+      // map.drawOverlay({
+      //   lat: 37.4686291,
+      //   lng: 127.0185656,
+      //   content: '<div class="gmaps-overlay-signal"><div>서초동</div><div>sdf</div><div class="gmaps-overlay-signal_arrow above"></div></div>',
+      //   verticalAlign: 'top',
+      //   horizontalAlign: 'center'
+      // });
+
+      // map.drawOverlay({
+      //   lat: 37.5167907,
+      //   lng: 127.0031308,
+      //   content: '<div class="gmaps-overlay-signal"><div>내곡동</div><div>sdf</div><div class="gmaps-overlay-signal_arrow above"></div></div>',
+      //   verticalAlign: 'top',
+      //   horizontalAlign: 'center'
+      // });
+
+      // map.drawOverlay({
+      //   lat: 37.4509543,
+      //   lng: 127.0514516,
+      //   content: '<div class="gmaps-overlay-signal"><div>양재동</div><div>sdf</div><div class="gmaps-overlay-signal_arrow above"></div></div>',
+      //   verticalAlign: 'top',
+      //   horizontalAlign: 'center'
+      // });
+
+    
+
+      
+      // 
 
       return map;
     },
@@ -93,8 +137,8 @@
     GoogleMap.prototype.createWithStreetview = function ($container, $lat, $lng) {
       return GMaps.createPanorama({
         el: $container,
-        lat : $lat,
-        lng : $lng
+        lat: $lat,
+        lng: $lng
       });
     },
     //Routes
@@ -104,15 +148,15 @@
         lat: $lat,
         lng: $lng
       });
-      $('#start_travel').click(function(e){
+      $('#start_travel').click(function (e) {
         e.preventDefault();
         map.travelRoute({
           origin: [-12.044012922866312, -77.02470665341184],
           destination: [-12.090814532191756, -77.02271108990476],
           travelMode: 'driving',
-          step: function(e){
-            $('#instructions').append('<li>'+e.instructions+'</li>');
-            $('#instructions li:eq('+e.step_number+')').delay(450*e.step_number).fadeIn(200, function(){
+          step: function (e) {
+            $('#instructions').append('<li>' + e.instructions + '</li>');
+            $('#instructions li:eq(' + e.step_number + ')').delay(450 * e.step_number).fadeIn(200, function () {
               map.setCenter(e.end_location.lat(), e.end_location.lng());
               map.drawPolyline({
                 path: e.path,
@@ -133,11 +177,11 @@
         lat: $lat,
         lng: $lng,
         mapTypeControlOptions: {
-          mapTypeIds : ["hybrid", "roadmap", "satellite", "terrain", "osm", "cloudmade"]
+          mapTypeIds: ["hybrid", "roadmap", "satellite", "terrain", "osm", "cloudmade"]
         }
       });
       map.addMapType("osm", {
-        getTileUrl: function(coord, zoom) {
+        getTileUrl: function (coord, zoom) {
           return "http://tile.openstreetmap.org/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
         },
         tileSize: new google.maps.Size(256, 256),
@@ -145,7 +189,7 @@
         maxZoom: 18
       });
       map.addMapType("cloudmade", {
-        getTileUrl: function(coord, zoom) {
+        getTileUrl: function (coord, zoom) {
           return "http://b.tile.cloudmade.com/8ee2a50541944fb9bcedded5165f09d9/1/256/" + zoom + "/" + coord.x + "/" + coord.y + ".png";
         },
         tileSize: new google.maps.Size(256, 256),
@@ -166,7 +210,7 @@
         options: [{
           title: 'Add marker',
           name: 'add_marker',
-          action: function(e){
+          action: function (e) {
             this.addMarker({
               lat: e.latLng.lat(),
               lng: e.latLng.lng(),
@@ -177,50 +221,40 @@
         }, {
           title: 'Center here',
           name: 'center_here',
-          action: function(e){
+          action: function (e) {
             this.setCenter(e.latLng.lat(), e.latLng.lng());
           }
         }]
       });
     },
+
     //init
-    GoogleMap.prototype.init = function() {
+    GoogleMap.prototype.init = function () {
       var $this = this;
-      $(document).ready(function(){
+      $(document).ready(function () {
         //creating basic map
-        $this.createBasic('#gmaps-basic'),
         //with sample markers
+        $this.createWithOverlay('#gmaps-overlay');
         $this.createMarkers('#gmaps-markers');
 
         //polygon
-        var path = [[-12.040397656836609,-77.03373871559225],
-                  [-12.040248585302038,-77.03993927003302],
-                  [-12.050047116528843,-77.02448169303511],
-                  [-12.044804866577001,-77.02154422636042]];
-        $this.createWithPolygon('#gmaps-polygons', path);
+        var path = [[-12.040397656836609, -77.03373871559225],
+        [-12.040248585302038, -77.03993927003302],
+        [-12.050047116528843, -77.02448169303511],
+        [-12.044804866577001, -77.02154422636042]];
+
 
         //overlay
-        $this.createWithOverlay('#gmaps-overlay');
 
-        //street view
-        $this.createWithStreetview('#panorama',  42.3455, -71.0983);
 
-        //routes
-        $this.createWithRoutes('#gmaps-route',-12.043333, -77.028333);
-
-        //types
-        $this.createMapByType('#gmaps-types', -12.043333, -77.028333);
-
-        //statu
-        $this.createWithMenu('#gmaps-menu', -12.043333, -77.028333);
       });
     },
     //init
     $.GoogleMap = new GoogleMap, $.GoogleMap.Constructor = GoogleMap
 }(window.jQuery),
 
-//initializing 
-function($) {
+  //initializing 
+  function ($) {
     "use strict";
     $.GoogleMap.init()
-}(window.jQuery);
+  }(window.jQuery);
